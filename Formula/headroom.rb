@@ -1,9 +1,9 @@
 class Headroom < Formula
   desc "Live quota, resets and pace states for every AI subscription and account"
   homepage "https://github.com/Apertur3/headroom"
-  url "https://registry.npmjs.org/headroomd/-/headroomd-0.1.2.tgz"
-  version "0.1.2"
-  sha256 "cfc08ddae7f2bfc6c63e168c82fd8a4cac14b9b9b17bfbc70c41292f8a8a319c"
+  url "https://registry.npmjs.org/headroomd/-/headroomd-0.1.3.tgz"
+  version "0.1.3"
+  sha256 "59ec9cab692899f8b3a52b8c12a32e7261569b0ef534f85169314cdfa8a83546"
   license "MIT"
 
   depends_on "node"
@@ -11,8 +11,8 @@ class Headroom < Formula
   # Homebrew repacks the staged package with "npm pack --ignore-scripts", so the
   # package's own prepack hook never runs here and nothing reads the macOS
   # Keychain during installation. The published tarball already carries the
-  # compiled JavaScript and the prebuilt Claude probe, which makes this a plain
-  # file install on both macOS and Linux; the probe is only ever used on macOS.
+  # compiled JavaScript, Claude probe and Antigravity native reader. Installation
+  # needs no compiler; the native binaries are only used on macOS.
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
@@ -27,8 +27,8 @@ class Headroom < Formula
         headroom doctor
         brew services start headroom
 
-      On macOS the first read of the Claude Code token asks for Keychain access
-      once, and only once:
+      On macOS you can check that the Claude credential is readable.
+      No Keychain dialog is involved:
 
         headroom keychain grant
     EOS
