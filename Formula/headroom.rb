@@ -1,9 +1,9 @@
 class Headroom < Formula
   desc "Live quota, resets and pace states for every AI subscription and account"
   homepage "https://github.com/Apertur3/headroom"
-  url "https://registry.npmjs.org/headroomd/-/headroomd-0.2.4.tgz"
-  version "0.2.4"
-  sha256 "91ee48216cf0512719b23fe16f2d139d5c76ffc24c406ceb74088651e9bac1c2"
+  url "https://registry.npmjs.org/headroomd/-/headroomd-0.2.5.tgz"
+  version "0.2.5"
+  sha256 "dfdf1d2fc738e4d596d7b8108761eabf1f5d27c62553daca898b8cc45478970f"
   license "MIT"
 
   depends_on "node"
